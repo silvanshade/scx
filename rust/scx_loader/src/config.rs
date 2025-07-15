@@ -83,6 +83,7 @@ pub fn get_default_config() -> Config {
         SupportedSched::Rustland,
         SupportedSched::Cosmos,
         SupportedSched::WD40,
+        SupportedSched::Mitosis,
     ];
     let scheds_map = HashMap::from(supported_scheds.map(|x| init_default_config_entry(x)));
     Config {
@@ -227,6 +228,8 @@ fn get_default_scx_flags_for_mode(scx_sched: &SupportedSched, sched_mode: SchedM
         SupportedSched::Cosmos => vec![],
         // scx_wd40 doesn't support any of these modes
         SupportedSched::WD40 => vec![],
+        // scx_mitosis doesn't support any of these modes
+        SupportedSched::Mitosis => vec![],
     }
 }
 
@@ -305,6 +308,13 @@ powersave_mode = []
 server_mode = []
 
 [scheds.scx_wd40]
+auto_mode = []
+gaming_mode = []
+lowlatency_mode = []
+powersave_mode = []
+server_mode = []
+
+[scheds.scx_mitosis]
 auto_mode = []
 gaming_mode = []
 lowlatency_mode = []
