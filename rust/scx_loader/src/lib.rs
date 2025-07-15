@@ -40,6 +40,8 @@ pub enum SupportedSched {
     WD40,
     #[serde(rename = "scx_mitosis")]
     Mitosis,
+    #[serde(rename = "scx_chaos")]
+    Chaos,
 }
 
 impl FromStr for SupportedSched {
@@ -48,6 +50,7 @@ impl FromStr for SupportedSched {
     fn from_str(scx_name: &str) -> anyhow::Result<SupportedSched> {
         match scx_name {
             "scx_bpfland" => Ok(SupportedSched::Bpfland),
+            "scx_chaos" => Ok(SupportedSched::Chaos),
             "scx_cosmos" => Ok(SupportedSched::Cosmos),
             "scx_flash" => Ok(SupportedSched::Flash),
             "scx_lavd" => Ok(SupportedSched::Lavd),
@@ -73,6 +76,7 @@ impl From<SupportedSched> for &str {
     fn from(scx_name: SupportedSched) -> Self {
         match scx_name {
             SupportedSched::Bpfland => "scx_bpfland",
+            SupportedSched::Chaos => "scx_chaos",
             SupportedSched::Cosmos => "scx_cosmos",
             SupportedSched::Flash => "scx_flash",
             SupportedSched::Lavd => "scx_lavd",
